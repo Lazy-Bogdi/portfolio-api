@@ -1,0 +1,15 @@
+nelmio_api_doc:
+    documentation:
+        info:
+            title: "Portfolio API"
+            version: "1.0.0"
+            description: "Portfolio backend — Symfony 7 + FrankenPHP + Mercure"
+        servers:
+            - url: /
+    areas:
+        default:
+            path_patterns: ['^/api(?!/doc)']
+    models:
+        use_jms: true
+    html_config:
+        assets_mode: cdn
