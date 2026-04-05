@@ -11,7 +11,7 @@ class Media
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $id = null; // @phpstan-ignore property.unusedType
+    private ?int $id = null;
 
     #[ORM\Column(length: 255)]
     private string $filename;

@@ -12,7 +12,7 @@ class Skill
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-    private ?int $id = null; // @phpstan-ignore property.unusedType
+    private ?int $id = null;
 
     #[ORM\Column(length: 100)]
     private string $label;
