@@ -47,6 +47,15 @@
             ".php-cs-fixer.dist.php"
         ]
     },
+    "gesdinet/jwt-refresh-token-bundle": {
+        "version": "2.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "main",
+            "version": "1.0",
+            "ref": "2390b4ed5c195e0b3f6dea45221f3b7c0af523a0"
+        }
+    },
     "jms/serializer-bundle": {
         "version": "5.5",
         "recipe": {
@@ -55,6 +64,18 @@
             "version": "4.0",
             "ref": "cc04e10cf7171525b50c18b36004edf64cb478be"
         }
+    },
+    "lexik/jwt-authentication-bundle": {
+        "version": "3.2",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "2.5",
+            "ref": "e9481b233a11ef7e15fe055a2b21fd3ac1aa2bb7"
+        },
+        "files": [
+            "config/packages/lexik_jwt_authentication.yaml"
+        ]
     },
     "nelmio/api-doc-bundle": {
         "version": "5.9",
