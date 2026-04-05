@@ -8,6 +8,9 @@ if [ -n "$PORT" ] && [ -z "$SERVER_NAME" ]; then
 	export CADDY_GLOBAL_OPTIONS="auto_https off"
 fi
 
+# Remove compiled env so real environment variables (from Railway/Docker) take precedence
+rm -f /app/.env.local.php
+
 if [ "$1" = 'frankenphp' ] || [ "$1" = 'php' ] || [ "$1" = 'bin/console' ]; then
 	if [ -z "$(ls -A 'vendor/' 2>/dev/null)" ]; then
 		composer install --prefer-dist --no-progress --no-interaction
