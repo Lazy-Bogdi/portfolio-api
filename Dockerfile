@@ -30,7 +30,6 @@ RUN <<-EOF
 		intl \
 		opcache \
 		pdo_pgsql \
-		redis \
 		zip
 	rm -rf /var/lib/apt/lists/*
 EOF

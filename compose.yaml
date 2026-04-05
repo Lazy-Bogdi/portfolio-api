@@ -11,7 +11,6 @@ services:
       MERCURE_URL: ${CADDY_MERCURE_URL:-http://php/.well-known/mercure}
       MERCURE_PUBLIC_URL: ${CADDY_MERCURE_PUBLIC_URL:-https://${SERVER_NAME:-localhost}:${HTTPS_PORT:-443}/.well-known/mercure}
       MERCURE_JWT_SECRET: ${CADDY_MERCURE_JWT_SECRET:-!ChangeThisMercureHubJWTSecretKey!}
-      MESSENGER_TRANSPORT_DSN: redis://redis:6379/messages
     volumes:
       - caddy_data:/data
       - caddy_config:/config
@@ -31,8 +30,6 @@ services:
     depends_on:
       database:
         condition: service_healthy
-      redis:
-        condition: service_healthy
 
   database:
     image: postgres:${POSTGRES_VERSION:-16}-alpine
@@ -49,21 +46,7 @@ services:
     volumes:
       - database_data:/var/lib/postgresql/data:rw
 
-  redis:
-    image: redis:7-alpine
-    restart: unless-stopped
-    healthcheck:
-      test: ["CMD", "redis-cli", "ping"]
-      timeout: 5s
-      retries: 5
-      start_period: 10s
-    volumes:
-      - redis_data:/data
-
-# Mercure is built into FrankenPHP — no separate service needed
-
 volumes:
   caddy_data:
   caddy_config:
   database_data:
-  redis_data:

@@ -13,6 +13,9 @@ if [ "$1" = 'frankenphp' ] || [ "$1" = 'php' ] || [ "$1" = 'bin/console' ]; then
 		composer install --prefer-dist --no-progress --no-interaction
 	fi
 
+	# Generate JWT keypair if not present
+	php bin/console lexik:jwt:generate-keypair --skip-if-exists 2>/dev/null || true
+
 	# Display information about the current project
 	php bin/console -V
 
